@@ -5,7 +5,7 @@ const client = new DynamoDBClient({});
 
 const docClient = DynamoDBDocument.from(client);
 
-const tableName = "crudFunc";
+const tableName = "Blogs";
 
 export const handler = async (event, context) => {
     let body;
@@ -19,8 +19,8 @@ export const handler = async (event, context) => {
             TableName: tableName,
                 Item: {
                     id: requestJSON.id,
-                    name: requestJSON.name,
-                    surname: requestJSON.surname,
+                    title: requestJSON.title,
+                    description: requestJSON.description,
                 }
                 })
         body = "Added/Updated Product ${requestJSON.id}";
